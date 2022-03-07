@@ -44,14 +44,6 @@ class DatabaseService {
     });
   }
 
-  Future<void> updateSurvey(Survey survey) async {
-    var ref = _db.collection('surveys');
-    await ref
-        .doc(survey.id)
-        .update({'name': survey.name, 'description': survey.description});
-    return;
-  }
-
   Future<void> removeSurvey(String id) async {
     var ref = _db.collection('surveys');
     await ref.doc(id).delete();
